@@ -1,7 +1,3 @@
-📘 README.md 
-markdown
-Copiar
-Editar
 # 📇 MyContacts
 
 **MyContacts** is a simple backend API built with Node.js to manage contacts using a RESTful architecture. This project was developed to practice concepts such as controllers, repositories, Express routing, and UUID-based identifiers.
@@ -20,11 +16,23 @@ Editar
 
 ## 📁 Project Structure
 
-MyContacts/ ├── node_modules/ ├── src/ │ ├── app/ │ │ ├── controllers/ │ │ │ └── ContactController.js │ │ └── repositories/ │ │ └── ContactsRepository.js │ ├── index.js │ └── routes.js ├── .editorconfig ├── .gitignore ├── eslint.config.mjs ├── package.json └── yarn.lock
-
-yaml
-Copiar
-Editar
+```
+MyContacts/
+├── node_modules/
+├── src/
+│   ├── app/
+│   │   ├── controllers/
+│   │   │   └── ContactController.js
+│   │   └── repositories/
+│   │       └── ContactsRepository.js
+│   ├── index.js
+│   └── routes.js
+├── .editorconfig
+├── .gitignore
+├── eslint.config.mjs
+├── package.json
+└── yarn.lock
+```
 
 ---
 
@@ -42,13 +50,13 @@ Editar
 
 Base URL: `http://localhost:3000`
 
-| Method | Endpoint          | Description              |
-|--------|-------------------|--------------------------|
-| GET    | `/contacts`       | List all contacts        |
-| GET    | `/contacts/:id`   | Get a contact by ID      |
-| POST   | `/contacts`       | Create a new contact     |
-| PUT    | `/contacts/:id`   | Update an existing contact |
-| DELETE | `/contacts/:id`   | Delete a contact         |
+| Method | Endpoint          | Description                  |
+|--------|-------------------|------------------------------|
+| GET    | `/contacts`       | List all contacts            |
+| GET    | `/contacts/:id`   | Get a contact by ID          |
+| POST   | `/contacts`       | Create a new contact         |
+| PUT    | `/contacts/:id`   | Update an existing contact   |
+| DELETE | `/contacts/:id`   | Delete a contact             |
 
 ---
 
@@ -57,6 +65,7 @@ Base URL: `http://localhost:3000`
 You can use [Insomnia](https://insomnia.rest/) or any other REST client (e.g., Postman) to test the API.
 
 ### Example request body for POST:
+
 ```json
 {
   "name": "Igor Carvalho",
@@ -64,35 +73,42 @@ You can use [Insomnia](https://insomnia.rest/) or any other REST client (e.g., P
   "phone": "(21) 99999-9999",
   "category_id": "some-uuid-here"
 }
-⚙️ Getting Started
-Clone this repository:
+```
 
-bash
-Copiar
-Editar
+---
+
+## ⚙️ Getting Started
+
+1. Clone this repository:
+
+```bash
 git clone git@github.com:igcarvalho/MyContacts.git
-Install the dependencies:
+```
 
-bash
-Copiar
-Editar
+2. Install the dependencies:
+
+```bash
 yarn install
-Start the development server:
+```
 
-bash
-Copiar
-Editar
+3. Start the development server:
+
+```bash
 yarn start
-The API will be running at: http://localhost:3000
+```
 
-📄 License
-This project is licensed under the MIT License. See the LICENSE file for more details.
+> The API will be running at: `http://localhost:3000`
 
-🙋‍♂️ Author
-Made with 💙 by Igor Carvalho
+---
 
-GitHub: @igcarvalho
+## 📄 License
 
-yaml
-Copiar
-Editar
+This project is licensed under the **MIT License**. See the [LICENSE](LICENSE) file for more details.
+
+---
+
+## 🙋‍♂️ Author
+
+Made with 💙 by **Igor Carvalho**
+
+- GitHub: [@igcarvalho](https://github.com/igcarvalho)

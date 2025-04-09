@@ -22,8 +22,9 @@ let contacts = [
 ];
 
 class ContactsRepository {
-async  findAll () {
-   const rows = await db.query('SELECT * FROM contacts ORDER BY name ASC');
+async  findAll(orderBy = 'ASC') {
+   const direction = orderBy.toUpperCase() === 'DESC' ? 'DESC' : 'ASC';
+   const rows = await db.query(`SELECT * FROM contacts ORDER BY name ${direction}`);
    return rows;
 
 
@@ -40,12 +41,7 @@ async  findAll () {
     return row;
 
   }
-  delete(id) {
-    return new Promise((resolve) => {
-      contacts = contacts.filter((contact) => contact.id !== id);
-      resolve();
-    });
-  }
+
 
  async create({
     name, email, phone, category_id,
@@ -59,22 +55,22 @@ async  findAll () {
 
 
   }
-  update(id,{
+ async update(id,{
     name, email, phone, category_id,
   }) {
-    return new Promise((resolve) => {
-      const updateContact = {
-        id,
-        name,
-        email,
-        phone,
-        category_id,
-      };
-      contacts = contacts.map((contact) =>  (
-        contact.id === id ? updateContact : contact
-      ));
+     const  [row]  = await db.query(`
+      UPDATE contacts
+      SET name = $1, email = $2, phone = $3, category_id = $4
+      WHERE id = $5
+      RETURNING *
+      `,[name, email, phone, category_id, id] );
+     return row;
+  }
 
-      resolve(updateContact);
+  delete(id) {
+    return new Promise((resolve) => {
+      contacts = contacts.filter((contact) => contact.id !== id);
+      resolve();
     });
   }
 }
